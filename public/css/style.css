@@ -1,0 +1,290 @@
+* {
+   box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+}
+body {
+	font-family: Myriad Pro, Arial, Helvetica, sans-serif;
+	font-style: 14px;
+	
+}
+@font-face {
+	font-family: 'UTM';
+	src : url(../fonts/UTMIsadoraBold.ttf);
+}
+.carousel-item img {
+	width: 100%;
+	height: 550px;
+}
+.menu-left {
+	width: 33%;
+}
+.menu-left a {
+	color: #000 !important;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+.menu-max {
+	width: 100%;
+}
+.menu-max ul {
+	width: 100%;
+}
+.images img {
+	width: 100%;
+}
+.menu-2 {
+	padding-left: 0;
+}
+.main {
+	position: relative;
+	z-index: 11111
+}
+.img {
+	position: absolute;
+	z-index: 3333333;
+	left: 550px;
+    top: -110px;
+}
+.title-top1 {
+	padding: 0;
+	margin-top: 5px;
+}
+.icon {
+	margin-top: 10px;
+}
+.icons span {
+	padding-right: 42px;
+	color: #fff;
+   }
+.text-sl h1 {
+	color: #000;
+	background-color: #fff;
+	width: 65%;
+	text-align: center;
+	margin-left: 170px;
+	margin-bottom: 15px;
+}
+.content-1 {
+	margin-top: 35px;
+}
+.text-1 span {
+	color: #e6da75;
+}
+.text-1 p {
+	text-align: center;
+}
+.text-1 h1 {
+	text-align: center;
+	font-family: 'UTM';
+	
+}
+.infor {
+	padding: 0;
+	background-color: #000;
+}
+.email p {
+	color: #fff;
+}
+.dv-text {
+	background-color: #f6f6f6;
+	border-bottom: 4px solid  #e6da75;
+}
+.dv-text h2 {
+	text-align: center;
+    padding-top: 20px;
+    color: #e6da75;
+    margin-bottom: 0;
+}
+.dv-text p {
+	text-align: center;
+	margin-top: 18px;
+}
+.dv-text button {
+	margin: 8px 0 30px 125px;
+}
+.btn-warning {
+	background-color:  #e6da75 !important;
+	border:  #e6da75;
+	color: #fff;
+}
+.dv-1 {
+	margin-top: 30px;
+}
+.dv-img img {
+	width: 100%;
+}
+.gt {
+	background-image: url('../images/dv2.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	margin-top: 55px;
+}
+.gt-img img {
+	width: 65%;
+	margin-top: 50px;
+    margin-left: 195px;
+    margin-bottom: 50px;
+}
+.gt-text h1 {
+	color: #fff;
+	text-align: center;
+	margin-top: 50px;
+	
+}
+@font-face {
+	font-family: fonts;
+	src: url(UTM IsadoraBold.ttf);
+}
+.gt-text p {
+	color: #fff;
+	text-align: center;
+}
+.p {
+	color: #fff;
+	text-align: justify !important;
+	margin-top: 40px;
+}
+.gt-text span {
+	color: #e6da75;
+}
+.img-gt img {
+	margin-left: 190px;
+}
+.gt-bt {
+	margin-left: 245px;
+}
+.dt-img img {
+	width: 100%;
+}
+.dt-text h3 {
+	margin-top: 15px;
+	color: #fff;
+}
+.text-ct h1 {
+	color: #fff;
+}
+.text-ct p {
+	color: #fff;
+}
+.text-ct {
+	margin-top: 40px;
+}
+.dt-text p {
+	text-align: justify;
+	
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 1.5em;
+    max-height: 210px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+   
+}
+.dt-text button {
+	margin-bottom: 30px;
+}
+.content-dt {
+	margin-top: 20px;
+}
+.ct {
+	background-image: url(../images/ct.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.content4 {
+	margin-top: 20px;
+}
+.ct-text p {
+	color: #fff;
+}
+.i {
+	margin-left: 175px;
+	color: #eb82f3;
+	margin-top: 30px;
+}
+.cmt-max {
+	margin-top: 40px;
+}
+.cmt-min {
+	background-color: #f6f6f6;
+}
+.cmt p {
+	text-align: center;
+	margin-left: 61px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 1.5em;
+    max-height: 210px;
+    max-width: 250px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+
+}
+.comment img {
+	margin-left: 137px;
+}
+.comment h3 {
+	text-align: center;
+	color: #eb82f3;
+}
+.lg-ft img {
+	width: 70%;
+    margin-left: 42px;
+}
+.if p {
+	text-align: center;
+	color: #fff;
+	margin-top: 30px;
+}
+.footer {
+	background-image: url(../images/bk-ft.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+.ft-text h3 {
+	color: #f7e95c;
+	text-align: left;
+	font-family: 'UTM';
+}
+.footer-ft {
+	margin-top: 30px;
+
+}
+.ft {
+	margin-top: 30px;
+}
+.mb {
+	display: none;
+}
+.menu-dad li:hover  {
+	background-color: #e6da75;
+	color: #fff;
+}
+.menu-d {
+	z-index: 9999999;
+}
+.lienhe {
+    margin-top: 86px;
+}
+.detail {
+	margin-top: 40px;
+}
+.menu-d a {
+	text-align: left;
+	text-transform: capitalize;
+}
+.menu-d a:hover {
+	background-color: #e6da75;
+}
+.text-sl a {
+	background-color: #555050;
+    border-color: #555050;
+}
+.text-sl a:hover {
+	background-color: #e6da75;
+	color: 
+}
