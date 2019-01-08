@@ -1,34 +1,41 @@
 <?php
-	$slider = DB::table('slider')->select()->where('status',1)->where('com','gioi-thieu')->orderBy('created_at','desc')->get();
+	$sliders = DB::table('slider')->select()->where('status',1)->where('com','gioi-thieu')->orderBy('created_at','desc')->get();
 
 ?>
-@if(isset($slider))
-<div class="slider-area home1">
-    <div class="bend niceties preview-2">
-        <div id="ensign-nivoslider" class="slides">
-        	@foreach($slider as $key=>$item)
-            <img src="{{asset('public/img/slider/slider-bg.jpg')}}" alt="" title="#slider-direction-{{$key}}"  />
-            @endforeach            
+@if(isset($sliders))
+<main role="main" class="main">
+    <!-- <div class="img">
+        <img src="{{asset('upload/hinhanh/'.$setting->photo)}}">
+    </div> -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol> -->
+    <div class="carousel-inner">
+        @foreach(@$sliders as $k=>$slider)
+        <div class="carousel-item @if($k==0)active @endif">
+            <img class="first-slide" src="{{asset('upload/hinhanh/'.$slider->photo)}}" alt="First slide">
+             <div class="container">
+                <div class="carousel-caption text-sl">
+                    <h1>WELCOME TO OUR SPA </h1>
+                    <h2>CHECK OUT OUT SERVICES AND OFFERS</h1>
+                    <p><a style="margin-right: 30px; " class="btn btn-lg btn-primary" href="#" role="button">Learn more</a> <a  style="margin-left: 30px;" class="btn btn-lg btn-primary" href="#" role="button">Book now</a></p>
+                </div>
+            </div>
         </div>
-        <!-- direction 1 -->
-        
-	        @foreach($slider as $key=>$item)
-	        <div id="slider-direction-{{$key}}" class="t-cn slider-direction">
-	            <div class="slider-progress"></div>
-	            <div class="slider-content t-cn s-tb slider-1">
-	                <div class="title-container s-tb-c">
-	                    <h1 class="title1">{{$item->name}}</h1>
-	                    <!-- <h1 class="title2"><strong>CHO TẤT CẢ VÁY</strong></h1> -->
-	                    <a href="{{$item->link}}"><span>SHOP NOW</span></a>
-	                </div>
-	            </div>
-	            <div class="layer-1 slide1">
-	                <img src="{{asset('upload/hinhanh/'.$item->photo)}}" alt="" />
-	            </div>	
-	        </div>
-	        @endforeach
-       
+        @endforeach
     </div>
-</div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    </div>
+</main>
 	
  @endif

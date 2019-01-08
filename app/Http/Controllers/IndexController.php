@@ -70,13 +70,14 @@ class IndexController extends Controller {
 		$partners = DB::table('partner')->get();
 		$setting =DB::table('setting')->select()->where('id',1)->get()->first();
 		$about = DB::table('about')->where('com','gioi-thieu')->first();
+		$service = DB::table('news')->where('status',1)->where('com','dich-vu')->take(6)->orderBy('id','desc')->get();
 		$title = $setting->title;
 		$keyword = $setting->keyword;
 		$description = $setting->description;		
 		$com = 'index';
 		// End cấu hình SEO
 		$img_share = asset('upload/hinhanh/'.$setting->photo);
-		return view('templates.index_tpl', compact('com','keyword','description','title','img_share','partners','products','categories_home','feedbacks','news','about'));
+		return view('templates.index_tpl', compact('com','keyword','description','title','img_share','partners','products','categories_home','feedbacks','news','about','service'));
 	}
 	public function getProduct(Request $req)
 	{
@@ -84,9 +85,9 @@ class IndexController extends Controller {
 		
 		$products = DB::table('products')->where('status',1)->where('com','san-pham')->paginate(18);
 		$com='san-pham';		
-		$title = "Sản phẩm mẫu";
-		$keyword = "Sản phẩm mẫu";
-		$description = "Sản phẩm mẫu";
+		$title = "Sản phẩm";
+		$keyword = "Sản phẩm";
+		$description = "Sản phẩm";
 		// $img_share = asset('upload/hinhanh/'.$banner_danhmuc->photo);
 		
 		// return view('templates.product_tpl', compact('product','banner_danhmuc','doitac','camnhan_khachhang','keyword','description','title','img_share'));
@@ -130,48 +131,7 @@ class IndexController extends Controller {
         }
 	}
 
-	public function getProductListOld($id)
-	{
-		$cate_pro = DB::table('product_categories')->where('status',1)->where('parent_id',0)->orderby('id','asc')->get();
-        $com = 'san-pham';
-        $product_cate = ProductCate::select('*')->where('status', 1)->where('alias', $id)->where('com','san-pham')->first();        
-        if (!empty($product_cate)) {            
-        	$cate_parent = DB::table('product_categories')->where('id', $product_cate->parent_id)->first();
-
-        	$cateChilds = DB::table('product_categories')->where('parent_id', $product_cate->id)->get();
-        	
-        	$array_cate[] = $product_cate->id;
-        	if($cateChilds){
-        		foreach($cateChilds as $cate){
-        			$array_cate[] = $cate->id;
-        		}
-        	}        	
-        	
-
-        	$products = Products::whereIn('cate_id', $array_cate)->orderBy('id','desc')->paginate(18);
-            
-            if (!empty($product_cate->title)) {
-                $title = $product_cate->title;
-            } else {
-                $title = $product_cate->name;
-            }
-            $keyword = $product_cate->keyword;
-            $description = $product_cate->description;
-            $img_share = asset('upload/product/' . $product_cate->photo);
-            return view('templates.productlist_old', compact('products', 'product_cate', 'keyword', 'description', 'title', 'img_share', 'cate_pro', 'cate_parent', 'com'));
-        } else {
-            return redirect()->route('getErrorNotFount');
-        }
-	}
-
-	public function getProductChild($alias){
-		$cate = DB::table('product_categories')->where('alias',$alias)->first();
-		$products = DB::table('products')->select()->where('status',1)->where('cate_id',$cate->id)->orderBy('id','desc')->paginate(20);
-		$tintucs = DB::table('news')->orderBy('id','desc')->take(3)->get();
-		return view('templates.productlist_level2', compact('tintucs','products'));
-	}
 	
-
 
 	public function setCookies(Request $req, $id)
 	{
@@ -271,7 +231,7 @@ class IndexController extends Controller {
 	public function getListNews($id)
 	{
 		//Tìm article thông qua mã id tương ứng
-		$tintuc_cate = DB::table('news_categories')->select()->where('status',1)->where('com','tin-tuc')->where('alias',$id)->get()->first();
+		$tintuc_cate = DB::table('news_categories')->select()->where('status',1)->where('com','dich-vu')->where('alias',$id)->get()->first();
 		$cateNews = DB::table('news_categories')->where('com','tin-tuc')->get();
 		if(!empty($tintuc_cate)){
 			$tintuc = DB::table('news')->select()->where('status',1)->where('cate_id',$tintuc_cate->id)->orderBy('id','desc')->paginate(5);
@@ -298,12 +258,12 @@ class IndexController extends Controller {
 	
 	public function getNewsDetail($id)
 	{
-		$news_detail = DB::table('news')->select()->where('status',1)->where('com','tin-tuc')->where('alias',$id)->get()->first();
+		$news_detail = DB::table('news')->select()->where('status',1)->where('com','dich-vu')->where('alias',$id)->first();
 		
 		if(!empty($news_detail)){			
 			$cate_pro = DB::table('product_categories')->where('status',1)->where('parent_id',0)->orderby('id','asc')->get();			
 			$com='tin-tuc';
-			$setting = Cache::get('setting');
+			$newsSameCate = DB::table('news')->where('status',1)->where('com','dich-vu')->where('cate_id',$news_detail->cate_id)->get();
 			// Cấu hình SEO
 			if(!empty($news_detail->title)){
 				$title = $news_detail->title;
@@ -314,14 +274,49 @@ class IndexController extends Controller {
 			$description = $news_detail->description;
 			$img_share = asset('upload/news/'.$news_detail->photo);
 
-			return view('templates.news_detail_tpl', compact('news_detail','com','keyword','description','title','img_share'));
+			return view('templates.news_detail_tpl', compact('news_detail','com','keyword','description','title','img_share','newsSameCate'));
 		}else{
 			return redirect()->route('getErrorNotFount');
 		}
 		
 	}
 	
+	public function daoTao()
+	{
+		$data = DB::table('news')->where('com', 'dao-tao')->where('status',1)->orderBy('id','desc')->get();
+		$title = "Đào tạo";
+		return view('templates.daotao', compact('data', 'title'));
+	}
+	public function daoTaoDetail($alias)
+	{
+		$news_detail = DB::table('news')->select()->where('status',1)->where('com','dao-tao')->where('alias',$alias)->first();
+		
+		if(!empty($news_detail)){			
+						
+			$com='dao-tao';
+			$newsSameCate = DB::table('news')->where('status',1)->where('com','dao-tao')->orderBy('id','desc')->get();
+			// Cấu hình SEO
+			if(!empty($news_detail->title)){
+				$title = $news_detail->title;
+			}else{
+				$title = $news_detail->name;
+			}
+			$keyword = $news_detail->keyword;
+			$description = $news_detail->description;
+			$img_share = asset('upload/news/'.$news_detail->photo);
 
+			return view('templates.daotao_detail', compact('news_detail','com','keyword','description','title','img_share','newsSameCate'));
+		}else{
+			return redirect()->route('getErrorNotFount');
+		}
+	}
+
+	public function congNghe()
+	{
+		$data = DB::table('news')->where('status',1)->where('com','chuyen-giao')->orderBy('id','desc')->get();
+		$title = "Chuyển giao công nghệ";
+		return view('templates.congnghe', compact('title', 'data'));
+	}
 	public function postGuidonhang(Request $request)
 	{
 		$setting = Cache::get('setting');

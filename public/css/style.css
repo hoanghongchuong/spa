@@ -16,15 +16,14 @@ body {
 	width: 100%;
 	height: 550px;
 }
-.menu-left {
-	width: 33%;
-}
+
 .menu-left a {
 	color: #000 !important;
 	text-align: center;
 	text-transform: uppercase;
 	font-size: 14px;
 }
+
 .menu-max {
 	width: 100%;
 }
@@ -35,18 +34,28 @@ body {
 	width: 100%;
 }
 .menu-2 {
-	padding-left: 0;
+	padding-left: 30px !important;
+
 }
-.main {
+.menu-2 li {
+	width: auto !important;
+}
+
+.title-top {
 	position: relative;
-	z-index: 11111
+	z-index: 555555555;
 }
 .img {
 	position: absolute;
-	z-index: 3333333;
-	left: 550px;
-    top: -110px;
+	z-index: 3333;
+	left: 450px;
+    top: 8px;
+
 }
+.img img {
+	width: 90%;
+}
+
 .title-top1 {
 	padding: 0;
 	margin-top: 5px;
@@ -259,6 +268,13 @@ body {
 }
 .mb {
 	display: none;
+}
+.menu-dad li {
+	width: 100px;
+}
+.menu-dad {
+	padding-left: 52px;
+
 }
 .menu-dad li:hover  {
 	background-color: #e6da75;

@@ -19,9 +19,6 @@ Route::post('cartajax/add', ['as' => 'addProductToCartAjax', 'uses' => 'IndexCon
 
 Route::get('lien-he',['as'=>'getContact', 'uses'=>'ContactController@getContact']);
 Route::post('lien-he',['as'=>'postContact', 'uses'=>'ContactController@postContact']);
-Route::get('cua-hang','IndexController@store')->name('store');
-
-Route::get('catalog', 'IndexController@catalog')->name('catalog');
 
 // Ajax load more project
 Route::get('loadmore/project','IndexController@loadmoreProject')->name('loadmoreProject');
@@ -34,12 +31,7 @@ Route::get('san-pham/{alias}.html','IndexController@getProductDetail')->name('de
 Route::get('san-pham/{id}',['as'=>'getProductList', 'uses'=>'IndexController@getProductList']);
 Route::get('danh-muc/{alias}', 'IndexController@getProductByCate')->name('detailCategory');
 
-
-Route::get('hang-moi-ve', 'IndexController@newProduct');
-Route::get('ban-chay', 'IndexController@productSelling');
-
 Route::get('product/filter', 'IndexController@productFilder')->name('product.filter');
-
 
 Route::get('thanh-toan',['as'=>'thanhtoan', 'uses' => 'IndexController@thanhtoan']);
 // Route::get('danh-muc/{alias}',['as'=>'getProductChild', 'uses'=>'IndexController@getProductChild']);
@@ -67,9 +59,15 @@ Route::get('xoa-all','IndexController@deleteAllCart')->name('deleteCart');
 Route::get('dich-vu',['as'=>'getDichvu', 'uses'=>'IndexController@getDichvu']);
 Route::post('card/check',['as'=>'checkCard', 'uses'=>'IndexController@checkCard']);
 
-Route::get('tin-tuc',['as'=>'getListNews', 'uses'=>'IndexController@getNews']);
-Route::get('tin-tuc/{alias}.html',['as'=>'getNewsDetail', 'uses'=>'IndexController@getNewsDetail']);
-Route::get('tin-tuc/{alias}',['as'=>'getListNews', 'uses'=>'IndexController@getListNews']);
+Route::get('dich-vu',['as'=>'getListNews', 'uses'=>'IndexController@getNews']);
+Route::get('dich-vu/{alias}.html',['as'=>'getNewsDetail', 'uses'=>'IndexController@getNewsDetail']);
+Route::get('dich-vu/{alias}',['as'=>'getListNews', 'uses'=>'IndexController@getListNews']);
+
+Route::get('dao-tao', 'IndexController@daoTao');
+Route::get('dao-tao/{alias}.html', 'IndexController@daoTaoDetail');
+Route::get('chuyen-giao-cong-nghe', 'IndexController@congNghe');
+Route::get('chuyen-giao-cong-nghe/{alias}.html', 'IndexController@congNgheDetail');
+
 
 Route::get('{id}.html',['as'=>'getProductDetail', 'uses'=>'IndexController@getProductDetail']);
 Route::get('bai-viet/{id}.html',['as'=>'getBaiVietDetail', 'uses'=>'IndexController@getBaiVietDetail']);

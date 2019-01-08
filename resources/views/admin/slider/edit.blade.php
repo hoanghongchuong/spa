@@ -68,14 +68,17 @@
 					      	<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('txtName'); !!}</label>
 					      	@endif
 						</div>
-						<div class="form-group hidden">
+						<div class="form-group">
 					      	<label for="alias">Link liên kết</label>
 					      	<input type="text" name="txtLink" id="txtLink" value="{{ $data->link }}"  class="form-control" />
 						</div>
-						
+						<div class="form-group">
+					      	<label for="alias">Mô tả</label>
+					      	<textarea name="txtDesc" id="" cols="50" class="form-control" rows="5">{{ $data->mota }}</textarea>
+						</div>
 
 					</div>
-					<!-- @if($_GET['type']!='banner-quy-trinh' && $_GET['type']!='doi-tac-google' && $_GET['type']!='doi-tac-content')
+					<!-- 
 					<div class="col-md-12">
 						<div class="box box-info">
 			                <div class="box-header">
@@ -89,8 +92,7 @@
 			        			<textarea name="txtDesc" id="txtContent" cols="50" rows="5">{{ $data->mota }}</textarea>
 			        		</div>
 			        	</div>
-					</div>
-					@endif -->
+					</div> -->
 					<!-- <div class="col-md-6 col-xs-12">
 						<div class="box box-info">
 			                <div class="box-header">

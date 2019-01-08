@@ -4,7 +4,7 @@
         <ul class="sidebar-menu">
             <!-- <li class="header">MAIN NAVIGATION</li> -->
             
-            <li class="treeview {{@$_GET['type'] == 'san-pham' ? 'active' : '' }}">
+            <!-- <li class="treeview {{@$_GET['type'] == 'san-pham' ? 'active' : '' }}">
               <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Sản phẩm</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -13,12 +13,21 @@
                 <li><a href="backend/product?type=san-pham"><i class="fa fa-circle-o"></i> <span>Danh sách</span></a></li>
                
               </ul>
+            </li> -->
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Dịch vụ</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="backend/newscate?type=dich-vu"><i class="fa fa-circle-o"></i> <span>Danh mục</span></a></li>
+                <li><a href="backend/news?type=dich-vu"><i class="fa fa-circle-o"></i> <span>Danh sách</span></a></li>
+               
+              </ul>
             </li>
-            
             <!-- <li><a href="backend/orders"><i class="fa fa-shopping-cart"></i> <span>Quản lý đơn hàng</span></a></li> -->
-            <li><a href="backend/about/edit?type=gioi-thieu"><i class="fa fa-circle-o"></i> <span>Giới thiệu</span></a></li>
-            
-            <li><a href="backend/news?type=tin-tuc"><i class="fa fa-circle-o"></i> <span>Tin tức</span></a></li>
+            <li><a href="backend/about/edit?type=gioi-thieu"><i class="fa fa-circle-o"></i> <span>Giới thiệu</span></a></li>            
+            <li><a href="backend/news?type=dao-tao"><i class="fa fa-circle-o"></i> <span>Đào tạo</span></a></li>
+            <li><a href="backend/news?type=chuyen-giao"><i class="fa fa-circle-o"></i> <span>Chuyển giao công nghệ</span></a></li>
             <!-- <li><a href="backend/partner"><i class="fa fa-circle-o"></i> <span>Quản lý đối tác</span></a></li> -->
             <li><a href="backend/feedback"><i class="fa fa-gear" aria-hidden="true"></i> <span>Ý kiến khách hàng</span></a></li>
             <li><a href="backend/contact"><i class="fa fa-envelope"></i> <span>Quản lý liên hệ</span></a></li>

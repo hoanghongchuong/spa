@@ -34,14 +34,14 @@
 	                  	<div class="tab-pane active" id="tab_1">
 	                  		<div class="row">
 		                  		<div class="col-md-6 col-xs-12">
-		                  			<div class="form-group col-md-12 @if ($errors->first('fImages')!='') has-error @endif">
+		                  			<!-- <div class="form-group col-md-12 @if ($errors->first('fImages')!='') has-error @endif">
 										<label for="file">File ảnh</label>
 								     	<input type="file" id="file" name="fImages" >
 								    	<p class="help-block">Width:800px - Height: 326px</p>
 								    	@if ($errors->first('fImages')!='')
 								      	<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('fImages'); !!}</label>
 								      	@endif
-									</div>
+									</div> -->
 			                    	<div class="form-group hidden">
 								      	<label for="ten">Danh mục cha</label>
 								      	<select name="txtNewsCate" class="form-control">
@@ -75,16 +75,14 @@
 								</div>
 								<div class="col-md-6 col-xs-12">
 									<div class="col-md-6 col-xs-12">
-										@if($_GET['type']=='dich-vu')
-										<div class="form-group col-md-12 @if ($errors->first('fImagesBg')!='') has-error @endif">
+										<!-- <div class="form-group col-md-12 @if ($errors->first('fImagesBg')!='') has-error @endif">
 											<label for="file">File background</label>
 									     	<input type="file" id="file" name="fImagesBg" >
 									    	<p class="help-block">Width:225px - Height: 162px</p>
 									    	@if ($errors->first('fImagesBg')!='')
 									      	<label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {!! $errors->first('fImagesBg'); !!}</label>
 									      	@endif
-										</div>
-										@endif
+										</div>	 -->									
 									</div>
 								</div>
 							</div>

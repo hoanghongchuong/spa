@@ -2,11 +2,11 @@
 @section('content')
 <?php
     $setting = Cache::get('setting');
-    $banner = DB::table('banner_content')->where('position', 5)->first();
+    $sliders = DB::table('slider')->select()->where('status',1)->where('com','gioi-thieu')->orderBy('created_at','desc')->get();
 ?>
-<div class="content-box content-box-page">
-   
-    <div class="content-box-contact" style="margin-bottom: 30px;">
+@include('templates.layout.slider')
+<div class="content-box content-box-page">   
+    <div class="content-box-contact" style="margin-bottom: 30px; margin-top: 30px;">
         <div class="container">
             <div class="row info-company">
                 <div class="col-sm-4">

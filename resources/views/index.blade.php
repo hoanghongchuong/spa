@@ -34,6 +34,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('public/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/css/font-awesome.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/css/cus.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/css/news.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/css/style-mb.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/css/owl.theme.default.min.css')}}">

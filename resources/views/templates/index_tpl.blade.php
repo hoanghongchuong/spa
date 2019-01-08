@@ -5,127 +5,48 @@
 $setting = Cache::get('setting');
 $sliders = DB::table('slider')->select()->where('status',1)->where('com','gioi-thieu')->orderBy('created_at','desc')->get();
 ?>
-<main role="main" class="main">
-    <div class="img">
-        <img src="{{asset('upload/hinhanh/'.$setting->photo)}}">
-    </div>
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol> -->
-    <div class="carousel-inner">
-        @foreach(@$sliders as $k=>$slider)
-        <div class="carousel-item @if($k==0)active @endif">
-            <img class="first-slide" src="{{asset('upload/hinhanh/'.$slider->photo)}}" alt="First slide">
-             <div class="container">
-                <div class="carousel-caption text-sl">
-                    <h1>WELCOME TO OUR SPA </h1>
-                    <h2>CHECK OUT OUT SERVICES AND OFFERS</h1>
-                    <p><a style="margin-right: 30px; " class="btn btn-lg btn-primary" href="#" role="button">Learn more</a> <a  style="margin-left: 30px;" class="btn btn-lg btn-primary" href="#" role="button">Book now</a></p>
-                </div>
-            </div>
-        </div>
-        @endforeach
-    </div>
-    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-    </div>
-</main>
+@include('templates.layout.slider')
 <content>
     <div class="container">
         <div class="row content-1">
             <div class="col-xs-12 col-sm-12 col-md-12 col-large-12 text-1">
                 <h1>DỊCH VỤ <span>SPA</span></h1>
-                <p>Dịch vụ mang lại sự hài lòng cho khách hàng</p>
+                <!-- <p>Dịch vụ mang lại sự hài lòng cho khách hàng</p> -->
             </div>
             <div class="col-xs-2 col-sm-2 offset-md-5 col-md-2 col-large-2 img-1">
-                <img src="images/icondv.png">
+                <img src="{{ asset('public/images/icondv.png')}}">
             </div>      
         </div>
         <div class="row">
+            @foreach(@$service as $s)
             <div class="col-xs-12 col-sm-6 col-md-4 col-large-4 dv-1">
                 <div class="dv-img">
-                    <img src="images/dv.png">
+                    <img src="{{asset('upload/news/'.$s->photo)}}">
                 </div>
                 <div class="dv-text">
-                    <h2>That is a beautiful</h2>
-                    <p>I think . I can fuck her</p>
-                    <button type="button" class="btn btn-warning">Learn more</button>
+                    <h2>{{$s->name}}</h2>
+                    <p>{!! $s->mota !!}</p>
+                    <!-- <button type="button" class="btn btn-warning">Learn more</button> -->
+                    <p><a href="{{url('dich-vu/'.$s->alias.'.html')}}" class="btn btn-warning" title="">Chi tiết</a></p>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-large-4 dv-1">
-                <div class="dv-img">
-                    <img src="images/dv.png">
-                </div>
-                <div class="dv-text">
-                    <h2>That is a beautiful</h2>
-                    <p>I think . I can fuck her</p>
-                    <button type="button" class="btn btn-warning">Learn more</button>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-large-4 dv-1">
-                <div class="dv-img">
-                    <img src="images/dv.png">
-                </div>
-                <div class="dv-text">
-                    <h2>That is a beautiful</h2>
-                    <p>I think . I can fuck her</p>
-                    <button type="button" class="btn btn-warning">Learn more</button>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-large-4 dv-1">
-                <div class="dv-img">
-                    <img src="images/dv.png">
-                </div>
-                <div class="dv-text">
-                    <h2>That is a beautiful</h2>
-                    <p>I think . I can fuck her</p>
-                    <button type="button" class="btn btn-warning">Learn more</button>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-large-4 dv-1">
-                <div class="dv-img">
-                    <img src="images/dv.png">
-                </div>
-                <div class="dv-text">
-                    <h2>That is a beautiful</h2>
-                    <p>I think . I can fuck her</p>
-                    <button type="button" class="btn btn-warning">Learn more</button>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-large-4 dv-1">
-                <div class="dv-img">
-                    <img src="images/dv.png">
-                </div>
-                <div class="dv-text">
-                    <h2>That is a beautiful</h2>
-                    <p>I think . I can fuck her</p>
-                    <button type="button" class="btn btn-warning">Learn more</button>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <div class="container-fluid gt">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-large-6 gt-img">
-                <img src="images/gt.png">
+                <img src="{{asset('upload/hinhanh/'.$about->photo)}}">
             </div>
             <div class="col-xs-12 col-sm-12 col-md-5 col-large-6 gt-text text-1">
                 <h1><span>Giới thiệu</span> về chúng tôi</h1>
-                <p>Dịch vụ mang lại sự hài lòng cho khách hàng</p>
+                <!-- <p>Dịch vụ mang lại sự hài lòng cho khách hàng</p> -->
                 <div class="img-gt">
-                    <img src="images/icondv.png">
+                    <img src="{{asset('public/images/icondv.png')}}">
                 </div>
-                <p class="p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
-                <button type="button" class="btn btn-warning gt-bt">Click here</button>
+                <div class="p">{!! $about->mota !!}</div>
+                <!-- <button type="button" class="btn btn-warning gt-bt">Xem thêm</button> -->
+                <p><a href="{{url('gioi-thieu')}}" title="">Xem thêm</a></p>
             </div>
         </div>
     </div>
