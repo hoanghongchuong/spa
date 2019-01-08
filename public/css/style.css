@@ -40,7 +40,9 @@ body {
 .menu-2 li {
 	width: auto !important;
 }
-
+.dt-text1 h3 {
+	color: #000 !important;
+}
 .title-top {
 	position: relative;
 	z-index: 555555555;
@@ -100,6 +102,7 @@ body {
 	background-color: #f6f6f6;
 	border-bottom: 4px solid  #e6da75;
 }
+
 .dv-text h2 {
 	text-align: center;
     padding-top: 20px;
@@ -107,8 +110,16 @@ body {
     margin-bottom: 0;
 }
 .dv-text p {
-	text-align: center;
+	
 	margin-top: 18px;
+	 text-align: justify;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 1.5em;
+    max-height: 210px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 .dv-text button {
 	margin: 8px 0 30px 125px;
@@ -162,7 +173,7 @@ body {
 	margin-left: 190px;
 }
 .gt-bt {
-	margin-left: 245px;
+	margin-left: 0px;
 }
 .dt-img img {
 	width: 100%;
