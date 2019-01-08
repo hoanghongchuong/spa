@@ -19,7 +19,7 @@
                     <ul class="arrow-circle-o-right" style="padding-left: 0;">
                         @foreach($newsSameCate as $item)
                         <li>
-                            <a href="{{url('dich-vu/'.@$item->alias.'.html')}}">{{@$item->name}}</a>
+                            <a href="{{url('dao-tao/'.@$item->alias.'.html')}}">{{@$item->name}}</a>
                         </li>
                         @endforeach
                     </ul>

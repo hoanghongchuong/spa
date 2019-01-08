@@ -54,43 +54,25 @@ $sliders = DB::table('slider')->select()->where('status',1)->where('com','gioi-t
         <div class="row content-1">
             <div class="col-xs-12 col-sm-12 col-md-12 col-large-12 text-1">
                 <h1>Đào tạo</h1>
-                <p>Dịch vụ mang lại sự hài lòng cho khách hàng</p>
+                <!-- <p>Dịch vụ mang lại sự hài lòng cho khách hàng</p> -->
             </div>
             <div class="col-xs-2 col-sm-2 offset-md-5 col-md-2 col-large-2 img-1">
-                <img src="images/icondv.png">
+                <img src="{{asset('public/images/icondv.png')}}">
             </div>      
         </div>
         <div class="row content-dt">
+            @foreach($daotao as $d)
             <div class="col-xs-4 col-sm-4 col-md-4 col-large-4">
                 <div class="dt-img">
-                    <img src="images/dt.png">
+                    <a href="{{url('dao-tao/'.$d->alias.'.html')}}" title=""><img src="{{asset('upload/news/'.$d->photo)}}"></a>
                 </div>
                 <div class="dt-text">
-                    <h3>Yoga & Media Courses</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <button type="button" class="btn btn-warning ">Book now</button>
+                    <h3>{{$d->name}}</h3>
+                    <p>{!! $d->mota !!}</p>
+                    <p><a href="{{url('dao-tao/'.$d->alias.'.html')}}" class="btn btn-warning " title="">Chi tiết</a></p>
                 </div>
             </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-large-4">
-                <div class="dt-img">
-                    <img src="images/dt2.png">
-                </div>
-                <div class="dt-text">
-                    <h3>Yoga & Media Courses</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <button type="button" class="btn btn-warning ">Book now</button>
-                </div>
-            </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-large-4">
-                <div class="dt-img">
-                    <img src="images/dt3.png">
-                </div>
-                <div class="dt-text">
-                    <h3>Yoga & Media Courses</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <button type="button" class="btn btn-warning ">Book now</button>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <div class="container-fluid ct">
@@ -98,54 +80,37 @@ $sliders = DB::table('slider')->select()->where('status',1)->where('com','gioi-t
             <div class="row content-1 content4">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-large-12 text-1 text-ct">
                     <h1>Chuyển giao <span>công nghệ</span></h1>
-                    <p>Dịch vụ mang lại sự hài lòng cho khách hàng</p>
+                    <!-- <p>Dịch vụ mang lại sự hài lòng cho khách hàng</p> -->
                 </div>
                 <div class="col-xs-2 col-sm-2 offset-md-5 col-md-2 col-large-2 img-1">
-                    <img src="images/icondv.png">
+                    <img src="{{asset('public/images/icondv.png')}}">
                 </div>      
             </div>
                 <div class="row content-dt">
-                <div class="col-xs-4 col-sm-4 col-md-4 col-large-4">
-                    <div class="dt-img">
-                        <img src="images/dt.png">
+                    @foreach($congnghe as $c)
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-large-4">
+                        <div class="dt-img">
+                            <a href="{{url('chuyen-giao-cong-nghe/'.$c->alias.'.html')}}" title=""><img src="{{asset('upload/news/'.$c->photo)}}"></a>
+                        </div>
+                        <div class="dt-text ct-text">
+                            <h3>{{$c->name}}</h3>
+                            <p>{!! $c->mota !!}</p>
+                           
+                            <p><a href="{{url('chuyen-giao-cong-nghe/'.$c->alias.'.html')}}" class="btn btn-warning " title="">Chi tiết</a></p>
+                        </div>
                     </div>
-                    <div class="dt-text ct-text">
-                        <h3>Yoga & Media Courses</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <button type="button" class="btn btn-warning ">Book now</button>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="col-xs-4 col-sm-4 col-md-4 col-large-4">
-                    <div class="dt-img">
-                        <img src="images/dt2.png">
-                    </div>
-                    <div class="dt-text ct-text">
-                        <h3>Yoga & Media Courses</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <button type="button" class="btn btn-warning ">Book now</button>
-                    </div>
-                </div>
-                <div class="col-xs-4 col-sm-4 col-md-4 col-large-4">
-                    <div class="dt-img">
-                        <img src="images/dt3.png">
-                    </div>
-                    <div class="dt-text ct-text">
-                        <h3>Yoga & Media Courses</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <button type="button" class="btn btn-warning ">Book now</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <div class="container">
         <div class="row content-1">
             <div class="col-xs-12 col-sm-12 col-md-12 col-large-12 text-1">
                 <h1><span>Khách hàng</span> nói về chúng tôi</h1>
-                <p>Dịch vụ mang lại sự hài lòng cho khách hàng</p>
+                <!-- <p>Dịch vụ mang lại sự hài lòng cho khách hàng</p> -->
             </div>
             <div class="col-xs-2 col-sm-2 offset-md-5 col-md-2 col-large-2 img-1">
-                <img src="images/icondv.png">
+                <img src="{{asset('public/images/icondv.png')}}">
             </div>      
         </div>
         <div class="row cmt-max">

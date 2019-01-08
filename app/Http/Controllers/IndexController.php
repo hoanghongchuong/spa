@@ -71,13 +71,15 @@ class IndexController extends Controller {
 		$setting =DB::table('setting')->select()->where('id',1)->get()->first();
 		$about = DB::table('about')->where('com','gioi-thieu')->first();
 		$service = DB::table('news')->where('status',1)->where('com','dich-vu')->take(6)->orderBy('id','desc')->get();
+		$congnghe = DB::table('news')->where('status',1)->where('com','chuyen-giao')->take(3)->orderBy('id','desc')->get();
+		$daotao = DB::table('news')->where('status',1)->where('com','dao-tao')->take(3)->orderBy('id','desc')->get();
 		$title = $setting->title;
 		$keyword = $setting->keyword;
 		$description = $setting->description;		
 		$com = 'index';
 		// End cấu hình SEO
 		$img_share = asset('upload/hinhanh/'.$setting->photo);
-		return view('templates.index_tpl', compact('com','keyword','description','title','img_share','partners','products','categories_home','feedbacks','news','about','service'));
+		return view('templates.index_tpl', compact('com','keyword','description','title','img_share','partners','products','categories_home','feedbacks','news','about','service','daotao','congnghe'));
 	}
 	public function getProduct(Request $req)
 	{
