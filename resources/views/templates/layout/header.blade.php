@@ -131,9 +131,7 @@
                     <li class="nav-item">
                         <a class="nav-link disabled" href="{{url('lien-he')}}">Liên hệ</a>
                     </li>
-
-                </ul>
-               
+                </ul>               
             </div>
         </nav>
         </div>
