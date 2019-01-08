@@ -317,6 +317,30 @@ class IndexController extends Controller {
 		$title = "Chuyển giao công nghệ";
 		return view('templates.congnghe', compact('title', 'data'));
 	}
+
+	public function congNgheDetail($alias)
+	{
+		$news_detail = DB::table('news')->select()->where('status',1)->where('com','chuyen-giao')->where('alias',$alias)->first();		
+		if(!empty($news_detail)){			
+						
+			$com='chuyen-giao';
+			$newsSameCate = DB::table('news')->where('status',1)->where('com','chuyen-giao')->orderBy('id','desc')->get();
+			// Cấu hình SEO
+			if(!empty($news_detail->title)){
+				$title = $news_detail->title;
+			}else{
+				$title = $news_detail->name;
+			}
+			$keyword = $news_detail->keyword;
+			$description = $news_detail->description;
+			$img_share = asset('upload/news/'.$news_detail->photo);
+
+			return view('templates.congnghe_detail', compact('news_detail','com','keyword','description','title','img_share','newsSameCate'));
+		}else{
+			return redirect()->route('getErrorNotFount');
+		}
+
+	}
 	public function postGuidonhang(Request $request)
 	{
 		$setting = Cache::get('setting');

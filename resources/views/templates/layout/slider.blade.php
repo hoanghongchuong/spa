@@ -19,9 +19,9 @@
             <img class="first-slide" src="{{asset('upload/hinhanh/'.$slider->photo)}}" alt="First slide">
              <div class="container">
                 <div class="carousel-caption text-sl">
-                    <h1>WELCOME TO OUR SPA </h1>
-                    <h2>CHECK OUT OUT SERVICES AND OFFERS</h1>
-                    <p><a style="margin-right: 30px; " class="btn btn-lg btn-primary" href="#" role="button">Learn more</a> <a  style="margin-left: 30px;" class="btn btn-lg btn-primary" href="#" role="button">Book now</a></p>
+                    <h1>{{$slider->name}} </h1>
+                    <h2>{!! $slider->mota !!}</h1>
+                    <p><a style="margin-right: 30px; " class="btn btn-lg btn-primary" href="#" role="button">Chi tiết</a> <a  style="margin-left: 30px;" class="btn btn-lg btn-primary" href="{{url('lien-he')}}" role="button">Book now</a></p>
                 </div>
             </div>
         </div>

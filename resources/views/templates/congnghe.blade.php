@@ -20,12 +20,12 @@
              @foreach($data as $item)
             <div class="col-xs-12 col-sm-6 col-md-4 col-large-4 dv-1">
                 <div class="dv-img">
-                    <a href="{{url('dao-tao/'.$item->alias.'.html')}}" title=""><img src="{{ asset('upload/news/'.$item->photo) }}"></a>
+                    <a href="{{url('chuyen-giao-cong-nghe/'.$item->alias.'.html')}}" title=""><img src="{{ asset('upload/news/'.$item->photo) }}"></a>
                 </div>
                 <div class="dv-text">
                     <h2>{{$item->name}}</h2>
                     <p>{!! $item->mota !!}</p>
-                    <p><a href="{{url('dao-tao/'.$item->alias.'.html')}}" class="btn btn-warning" title="">Chi tiết</a></p>
+                    <p><a href="{{url('chuyen-giao-cong-nghe/'.$item->alias.'.html')}}" class="btn btn-warning" title="">Chi tiết</a></p>
                 </div>
             </div>
             @endforeach
