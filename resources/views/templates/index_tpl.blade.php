@@ -46,7 +46,7 @@ $sliders = DB::table('slider')->select()->where('status',1)->where('com','gioi-t
                 </div>
                 <div class="p">{!! $about->mota !!}</div>
                 <!-- <button type="button" class="btn btn-warning gt-bt">Xem thêm</button> -->
-                <p><a href="{{url('gioi-thieu')}}" title="">Xem thêm</a></p>
+                <p><a class="btn btn-warning gt-bt" href="{{url('gioi-thieu')}}" title="">Xem thêm</a></p>
             </div>
         </div>
     </div>
@@ -66,7 +66,7 @@ $sliders = DB::table('slider')->select()->where('status',1)->where('com','gioi-t
                 <div class="dt-img">
                     <a href="{{url('dao-tao/'.$d->alias.'.html')}}" title=""><img src="{{asset('upload/news/'.$d->photo)}}"></a>
                 </div>
-                <div class="dt-text">
+                <div class="dt-text dt-text1">
                     <h3>{{$d->name}}</h3>
                     <p>{!! $d->mota !!}</p>
                     <p><a href="{{url('dao-tao/'.$d->alias.'.html')}}" class="btn btn-warning " title="">Chi tiết</a></p>
